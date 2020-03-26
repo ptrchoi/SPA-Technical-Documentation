@@ -1,0 +1,258 @@
+<!--
+    FreeCodeCamp Responsive Web Design Project: 
+    >TECHNICAL DOCUMENTATION PAGE<
+
+    Examples of:
+        > Responsive, grid layouts
+        > Modals - responsive nav menu overlay
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <title>FCC Project | Technical Documentation Page</title>
+</head>
+
+<!--================= BODY | GRID =================-->
+
+<body class="grid">
+    <!--================= HEADER =================-->
+    <header id="header" class="grid-cell">
+        <div id="header-wrapper">
+            <h1>Visual Studio Code</h1>
+            <img src="images/vscode-logo-purple.png" alt="Visual Studio Code logo">
+        </div>
+        <div id="nav-overlay" class="nav-overlay--off">
+            <div id="nav-icon" class="nav-icon--burger" onclick="toggleOverlay()">
+                <div class="nav-icon--bar1"></div>
+                <div class="nav-icon--bar2"></div>
+                <div class="nav-icon--bar3"></div>
+            </div>
+        </div>
+    </header>
+    <!--================= NAV =================-->
+    <nav id="navbar">
+        <header id="nav-title">HTML Programming</header>
+        <a href="#Overview" class="nav-link active-link" onclick="checkOverlay()">Overview</a>
+        <a href="#IntelliSense" class="nav-link" onclick="checkOverlay()">IntelliSense</a>
+        <a href="#Close_tags" class="nav-link" onclick="checkOverlay()">Close tags</a>
+        <a href="#Color_picker" class="nav-link" onclick="checkOverlay()">Color picker</a>
+        <a href="#Hover" class="nav-link" onclick="checkOverlay()">Hover</a>
+        <a href="#Validation" class="nav-link" onclick="checkOverlay()">Validation</a>
+        <a href="#Folding" class="nav-link" onclick="checkOverlay()">Folding</a>
+        <a href="#Formatting" class="nav-link" onclick="checkOverlay()">Formatting</a>
+        <a href="#Emmet_snippets" class="nav-link" onclick="checkOverlay()">Emmet snippets</a>
+    </nav>
+    <!--================= MAIN =================-->
+    <main id="main-doc" class="grid-cell">
+        <span id="top-spacer"></span>
+        <section id="Overview" class="main-section">
+            <header>Overview</header>
+            <p>
+                Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions
+                with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
+            </p>
+        </section>
+        <section id="IntelliSense" class="main-section">
+            <header>IntelliSense</header>
+            <p>
+                As you type in HTML, we offer suggestions via HTML IntelliSense. In the image below, you can see a suggested HTML element
+                closure
+                <code>&lt/div&gt</code> as well as a context specific list of suggested elements.
+            </p>
+            <img class="screenshot" src="images/intellisense.png" alt="intellisense div screenshot">
+            <p>
+                We also offer up suggestions for elements, tags, some values (as defined in HTML5), Ionic and AngularJS tags. Document symbols
+                are also available for HTML, allowing you to quickly navigate to DOM nodes by id and class name.
+            </p>
+            <p>
+                You can also work with embedded CSS and JavaScript. However, note that script and style includes from other files are not
+                followed, the language support only looks at the content of the HTML file.
+            </p>
+            <p>
+                You can trigger suggestions at any time by pressing
+                <kbd>⌃Space</kbd>.
+            </p>
+            <p>
+                You can also control which built-in code completion providers are active. Override these in your user or workspace settings
+                if you prefer not to see the corresponding suggestions.
+            </p>
+            <p class="code-textbox">
+                <code class="textbox--font-size"><span class="text--black">// Configures if the built-in HTML language suggests Angular V1 tags and properties.<br>
+                <span class="text--red">"html.suggest.angular1"</span>: <span class="text--blue">true</span>,<br><br>
+                // Configures if the built-in HTML language suggests Ionic tags, properties and values.<br>
+                <span class="text--red">"html.suggest.ionic"</span>: <span class="text--blue">true</span>,<br><br>
+                // Configures if the built-in HTML language suggests HTML5 tags, properties and values.<br>
+                <span class="text--red">"html.suggest.html5"</span>: <span class="text--blue">true</span></code>
+                <br>
+            </p>
+        </section>
+        <section id="Close_tags" class="main-section">
+            <header>Close tags</header>
+            <p>
+                Tag elements are automatically closed when
+                <code>&gt</code> of the opening tag is typed.
+            </p>
+            <img class="screenshot" src="images/auto-close1.gif" alt="auto close #1 gif">
+            <p>
+                The matching closing tag is inserted when
+                <code>/</code> of the closing tag is entered.
+            </p>
+            <img class="screenshot" src="images/auto-close2.gif" alt="auto close #2 gif">
+            <p>
+                You can turn off autoclosing tags with the following setting:
+            </p>
+            <p class="code-textbox">
+                <code class="textbox--font-size text--black"><span class="text--red">"html.autoClosingTags"</span>: <span class="text--blue">false</span></code>
+            </p>
+        </section>
+        <section id="Color_picker" class="main-section">
+            <header>Color picker</header>
+            <p>
+                The VS Code color picker UI is now available in HTML style sections.
+            </p>
+            <img class="screenshot" src="images/color-picker.png" alt="color picker">
+        </section>
+        <section id="Hover" class="main-section">
+            <header>Hover</header>
+            <p>
+                Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
+            </p>
+            <img class="screenshot" src="images/hover.png" alt="hover screenshot">
+        </section>
+        <section id="Validation" class="main-section">
+            <header>Validation</header>
+            <p>
+                The HTML language support performs validation on all embedded JavaScript and CSS.
+            </p>
+            <p>
+                You can turn that validation off with the following settings:
+            </p>
+            <p class="code-textbox">
+                <code class="textbox--font-size text--black">// Configures if the built-in HTML language support validates embedded scripts.<br>
+                <span class="text--red">"html.validate.scripts"</span>: <span class="text--blue">true</span>,<br><br>
+                // Configures if the built-in HTML language support validates embedded styles.<br>
+                <span class="text--red">"html.validate.styles"</span>: <span class="text--blue">true</span></code>
+            </p>
+        </section>
+        <section id="Folding" class="main-section">
+            <header>Folding</header>
+            <p>
+                You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges
+                are available for all HTML elements for multi-line comments in the source code.
+            </p>
+            <p>
+                Additionally you can use the following region markers to define a folding range:
+                <code>&lt!-- #region --&gt</code> and
+                <code>&lt!-- endregion --&gt</code>
+                <!-- endregion -->
+            </p>
+            <p>
+                If you prefer to switch to indentation based folding for HTML use:
+            </p>
+            <p class="code-textbox">
+                <code class="textbox--font-size text--black"><span class="text--red">"[html]"</span>: {<br>
+                <span class="text--indent">"</span><span class="text--blue">editor.foldingStrategy</span>": <span class="text--red">"indentation"</span><br>
+                },</code>
+            </p>
+        </section>
+        <section id="Formatting" class="main-section">
+            <header>Formatting</header>
+            <p>
+                To improve the formatting of your HTML source code, press
+                <kbd>⌘K ⌘F</kbd> and the selected area will be reformatted.
+            </p>
+            <p>
+                The HTML formatter is based on js-beautify. The formatting options offered by that library are surfaced in the VS Code settings:
+            </p>
+            <p>
+                <ul>
+                    <li>
+                        <code>html.format.wrapLineLength</code> : Maximum amount of characters per line.</li>
+                    <li>
+                        <code>html.format.unformatted</code> : List of tags that shouldn't be reformatted.</li>
+                    <li>
+                        <code>html.format.contentUnformatted</code> : List of tags, comma separated, where the content shouldn't be reformatted.</li>
+                    <li>
+                        <code>html.format.extraLiners</code> : List of tags that should have an extra newline before them.</li>
+                    <li>
+                        <code>html.format.preserveNewLines</code> : Whether existing line breaks before elements should be preserved.</li>
+                    <li>
+                        <code>html.format.maxPreserveNewLines</code> : Maximum number of line breaks to be preserved in one chunk.</li>
+                    <li>
+                        <code>html.format.endWithNewline</code> : End with a newline.</li>
+                    <li>
+                        <code>html.format.indentInnerHtml</code> : Indent
+                        <code>&lthead&gt</code> and
+                        <code>&ltbody&gt</code> sections.</li>
+                    <li>
+                        <code>html.format.wrapAttributes</code> : Wrapping strategy for attributes:</li>
+                    <ul>
+                        <li>
+                            <code>auto</code> : Wrap when the line length is exceeded</li>
+                        <li>
+                            <code>force</code> : Wrap all attributes, except first</li>
+                        <li>
+                            <code>force-aligned</code> : Wrap all attributes, except first, and align attributes</li>
+                        <li>
+                            <code>force-expand-multiline</code> : Wrap all attributes</li>
+                    </ul>
+                </ul>
+            </p>
+            <p class="tip-box">
+                <span class="bold-text">Tip:</span> The formatter does not format the tags listed in the
+                <code>html.format.unformatted</code> and
+                <code>html.format.contentUnformatted</code> settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+            </p>
+            <p>
+                The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
+                <code>"html.format.enable": false</code> in your settings to turn off the built-in formatter.
+            </p>
+        </section>
+        <section id="Emmet_snippets" class="main-section">
+            <header>Emmet snippets</header>
+            <p>
+                We support Emmet snippet expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor
+                auto-completion list.
+            </p>
+            <img class="screenshot" src="images/emmet-snippet.gif" alt="emmet snippet gif">
+            <p class="tip-box">
+                <span class="bold-text">Tip:</span> See the HTML section of the Emmet cheat sheet for valid abbreviations.
+            </p>
+            <p>
+                If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as
+                <code>css</code>,
+                <code>html</code>) with other languages with the
+                <code>emmet.includeLanguages</code> setting. The setting takes a language id and associates it with the language id of an Emmet supported mode.
+            </p>
+            <p>
+                For example, to use Emmet HTML abbreviations inside JavaScript:
+            </p>
+            <p class="code-textbox">
+                <code class="textbox--font-size text--black">{<br>
+                <span class="text--indent">"<span class="text--blue">emmet.includeLanguages</span>": {<br>
+                <span class="text--indent"> </span><span class="text--indent">"<span class="text--blue">javascript</span>": <span class="text--red">"html"</span><br>
+                <span class="text--indent">}</span><br>
+                }</code>
+            </p>
+            <p>
+                We also support User Defined Snippets.
+            </p>
+            <span id="end-spacer"></span>
+        </section>
+    </main>
+    <!--================= FOOTER =================-->
+    <footer class="grid-cell">
+        <div id="footer-wrapper">*Content recreated from
+            <a id="vscode-link" href="https://code.visualstudio.com/docs/languages/html" target="_blank">code.visualstudio.com</a>
+        </div>
+    </footer>
+</body>
+<script src="app.js"></script>
+
+</html>
