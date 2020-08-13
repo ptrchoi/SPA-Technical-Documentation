@@ -332,6 +332,7 @@ ul {
 		height: 40px;
 	}
 	.nav-link {
+		height: 2.8rem;
 		margin-left: 50%;
 	}
 	.active-link {
